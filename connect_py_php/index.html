@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict wait time</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action=""method="post">
+    <label for="task">task</label><br>
+    <select id="t_type" name="t_type">
+      <option value="0">billing</option>
+      <option value="1">bloodtest</option>
+      <option value="2">checkup</option>
+      <option value="3">ct-scan</option>
+      <option value="4">fracture</option>
+      <option value="5">medicime</option>
+      <option value="6">mri</option>
+      <option value="7">x-ray</option>
+    </select><br>
+   	<label for="gender">gender</label><br>
+        <select id="gender" name="gender">
+   		<option value="0">Female</option>
+    	<option value="1">Male</option>
+    	</select><br><br>
+	
+	<label for="dept">dept</label><br>
+    <select id="dept" name="dept">
+      <option value="0">General Medicine</option>
+      <option value="1">Surgery</option>
+      <option value="2">cashier</option>
+      <option value="3">ct_lab</option>
+      <option value="4">mri_lab</option>
+      <option value="5">pathology_lab</option>
+      <option value="6">pharmacy</option>
+      <option value="7">xray_lab</option>
+    </select><br>
+    
+   	<label for="doctortype">doctortype</label><br>
+        <select id="doctortype" name="doctortype">
+   		<option value="0">orthopedic</option>
+    	<option value="1">physician</option>
+    	<option value="2">surgeon</option>
+    	<option value="3">unidentified</option>
+    	</select><br><br>
+   	
+   	<label for="is_weekday">day </label><br>	
+    <select id="is_weekday" name="is_weekday">
+      <option value="1">Monday</option>
+      <option value="1">Tuesday</option>
+      <option value="1">Wednesday</option>
+      <option value="1">Thursday</option>
+      <option value="1">Friday</option>
+      <option value="0">Saturday</option>
+      <option value="0">Sunday</option>
+    </select><br>
+    
+
+    <label for="session">session</label><br>
+        <select id="session" name="session">
+   		<option value="0">Evening</option>
+    	<option value="1">Morning</option>
+    	</select><br><br>
+
+    <label for="age_category">age</label><br>
+    <select id="age" name="age">
+   	<option value="0">adult</option>
+    <option value="1">child</option>
+    <option value="2">old</option>
+    </select><br><br>
+      
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   {{ prediction_text }}
+   <br>
+       <!--{{ prediction1_text }}-->
+   
+
+ </div>
+
+
+</body>
+</html>
